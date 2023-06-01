@@ -1,8 +1,20 @@
 import os
 from pathlib import Path
 import logging
+from datetime import datetime
 
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(meassage)s:')
+LOG_FILE=f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
+logs_path=os.path.join(os.getcwd(), "src/TextSummarizer/logging/logs", LOG_FILE)
+os.makedirs(logs_path, exist_ok=True)
+
+LOG_FILE_PATH = os.path.join(logs_path, LOG_FILE)
+
+logging.basicConfig(
+    filename=LOG_FILE_PATH,
+    format="[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
+
+)
 
 project_name = "TextSummarizer"
 
@@ -13,6 +25,7 @@ list_of_files = [
     f"src/{project_name}/utils/__init__.py",
     f"src/{project_name}/utils/common.py",
     f"src/{project_name}/logging/__init__.py",
+    #f"src/{project_name}/logging/logs",
     f"src/{project_name}/config/__init__.py",
     f"src/{project_name}/config/configuration.py",
     f"src/{project_name}/pipeline/__init__.py",
@@ -34,7 +47,7 @@ for filePath in list_of_files:
 
     if fileDir != "":
         os.makedirs(fileDir, exist_ok=True)
-        logging.info("Creating directory:{fileDir} for the file {fileName}")
+        logging.info(f"Creating directory:{fileDir} for the file {fileName}")
 
     if (not os.path.exists(filePath)) or (os.path.getsize(filePath)==0):
         with open(filePath, 'w') as f:
