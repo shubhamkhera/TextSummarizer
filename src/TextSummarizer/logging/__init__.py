@@ -1,7 +1,7 @@
 import os
 import logging
 import sys
-from datetime import datetime
+#from datetime import datetime
 
 # LOG_FILE=f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 # logs_path=os.path.join(os.getcwd(), "src/TextSummarizer/logging/logs", LOG_FILE)
@@ -16,7 +16,7 @@ from datetime import datetime
 
 # )
 
-logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(meassage)s]"
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]"
 log_dir = "logs"
 log_filepath = os.path.join(log_dir,"running_logs.log")
 

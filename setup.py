@@ -26,7 +26,7 @@ setup(
         "Bug Tracker": f"https://github.com/{AUTHOR_NAME}/{REPO_NAME}/issues",
     },
     package_dir={"":"src"},
-    packages=find_packages(where='src')
+    packages=find_packages(where="src")
 
 )
 
