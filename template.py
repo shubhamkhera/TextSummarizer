@@ -21,7 +21,7 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(meassage)s:')
 project_name = "TextSummarizer"
 
 list_of_files = [
-    ".github/workflows/.gitkeep", #Later Delete this
+    ".github/workflows/.gitkeep", #Later Delete this this is a dummy file
     f"src/{project_name}/__init__.py",
     f"src/{project_name}/components/__init__.py",
     f"src/{project_name}/utils/__init__.py",
